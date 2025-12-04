@@ -1,4 +1,4 @@
-<h1 align="center">It's Too Delicious</h1>
+<h1 align="center">It's Too Delicious (DevBurguer)</h1>
 
 <h3 align="center">Sistema de Delivery Fullstack - Hamburgueria</h3>
 
@@ -96,6 +96,6 @@ STRIPE_SECRET_KEY=sua_chave_do_stripe (opcional)
 
 Sinta-se à vontade para registrar problemas caso encontre bugs ou tenha sugestões de melhoria!
 
-<p align="center"> Feito com 💜 por <strong>Elton Vitoretti Jr</strong>.
+<p align="center"> Feito com 💜 por <strong>Elton Vitoretti Jr</strong> sob tutoria do DevClub.
 
 Entre em contato: <a href="https://www.google.com/search?q=https://www.linkedin.com/in/elton-vitoretti-jr">LinkedIn</a> </p>
