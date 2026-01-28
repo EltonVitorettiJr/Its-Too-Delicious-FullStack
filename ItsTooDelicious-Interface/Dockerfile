@@ -1,5 +1,5 @@
 # Etapa 1: build
-FROM node:20-alpine AS build
+FROM node:20-slim AS build
 
 WORKDIR /app
 
@@ -20,7 +20,7 @@ COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expor a porta que Easypanel vai usar
 
-EXPOSE 5173
+EXPOSE 80
 
 
 CMD ["nginx", "-g", "daemon off;"]
