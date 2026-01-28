@@ -4,7 +4,7 @@ FROM node:20-slim AS build
 WORKDIR /app
 
 # Instala dependências
-COPY package*.json ./
+COPY package.json ./
 RUN npm install
 
 # Copia o restante do projeto
