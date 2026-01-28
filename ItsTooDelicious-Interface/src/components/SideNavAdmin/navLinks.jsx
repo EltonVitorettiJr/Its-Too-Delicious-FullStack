@@ -19,4 +19,10 @@ export const navLinks = [
     path: '/admin/novo-produto',
     icon: <ListPlusIcon />,
   },
+  {
+    id: 4,
+    label: 'Categorias',
+    path: '/admin/categorias',
+    icon: <ListIcon />,
+  },
 ];

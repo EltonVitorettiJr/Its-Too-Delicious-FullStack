@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../../services/api';
-import { Container, ProductImage, EditButton } from './styles';
+import { Container, CategoryImage, EditButton } from './styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -13,42 +13,33 @@ import {
   PencilIcon,
   XCircleIcon,
 } from '@phosphor-icons/react';
-import { formatPrice } from '../../../utils/formatPrice';
 import { useNavigate } from 'react-router-dom';
 import { TrashButton } from '../../../components/TrashButton';
 
-export function Products() {
-  const [products, setProducts] = useState([]);
+export function Categories() {
+  const [categories, setCategories] = useState([]);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function loadProducts() {
-      const { data } = await api.get('/products');
+    async function loadcategories() {
+      const { data } = await api.get('/categories');
 
-      setProducts(data);
+      setCategories(data);
     }
-    loadProducts();
-  }, [products]);
+    loadcategories();
+  }, [categories]);
 
-  function isOffer(offer) {
-    if (offer) {
-      return <CheckCircleIcon size={'22px'} color="green" />;
-    } else {
-      return <XCircleIcon size={'22px'} color="red" />;
-    }
+  function editCategory(category) {
+    navigate('/admin/editar-categoria', { state: { category } });
   }
 
-  function editProduct(product) {
-    navigate('/admin/editar-produto', { state: { product } });
-  }
+  function deleteCategory(id) {
+    if (confirm('Tem certeza que deseja excluir esta categoria?')) {
+      api.delete(`/categories/${id}`).then(() => {
+        const newCategories = categories.filter((category) => category.id !== id)
 
-  function deleteProduct(id) {
-    if (confirm('Tem certeza que deseja excluir este produto?')) {
-      api.delete(`/products/${id}`).then(() => {
-        const newProducts = products.filter((product) => product.id !== id)
-
-        setProducts(newProducts)
+        setCategories(newCategories)
       }
       )
     }
@@ -61,32 +52,28 @@ export function Products() {
           <TableHead>
             <TableRow>
               <TableCell>Nome</TableCell>
-              <TableCell>Preço</TableCell>
-              <TableCell>Em Oferta</TableCell>
               <TableCell>Imagem</TableCell>
               <TableCell>Editar</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {products.map((product) => (
+            {categories.map((category) => (
               <TableRow
-                key={product.id}
+                key={category.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {product.name}
+                  {category.name}
                 </TableCell>
-                <TableCell>{formatPrice(product.price)}</TableCell>
-                <TableCell>{isOffer(product.offer)}</TableCell>
                 <TableCell>
-                  <ProductImage src={product.url} alt={product.name} />
+                  <CategoryImage src={category.url} alt={category.name} />
                 </TableCell>
                 <TableCell>
                   <div style={{ display: "flex", gap: "10px", height: "100%", alignItems: "center", justifyContent: "center" }}>
-                    <EditButton onClick={() => editProduct(product)} style={{ margin: "0" }}>
+                    <EditButton onClick={() => editCategory(category)} style={{ margin: "0" }}>
                       <PencilIcon size={'22px'} color="white" />
                     </EditButton>
-                    <TrashButton onClick={() => deleteProduct(product.id)} style={{ margin: '0' }} />
+                    <TrashButton onClick={() => deleteCategory(category.id)} style={{ margin: '0' }} />
                   </div>
                 </TableCell>
               </TableRow>

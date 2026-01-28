@@ -15,6 +15,7 @@ import {
 import { UserLayout } from '../layouts/UserLayout';
 import { AdminLayout } from '../layouts/AdminLayout';
 import { useUser } from '../hooks/UserContext'
+import { Categories } from '../containers/Admin/Categories';
 
 export function Router() {
 
@@ -45,6 +46,7 @@ export function Router() {
         <Route path="/admin/novo-produto" element={<NewProduct />}></Route>
         <Route path="/admin/editar-produto" element={<EditProduct />}></Route>
         <Route path="/admin/produtos" element={<Products />}></Route>
+        <Route path="/admin/categorias" element={<Categories />}></Route>
       </Route>
 
       <Route path="/login" element={<Login />} />

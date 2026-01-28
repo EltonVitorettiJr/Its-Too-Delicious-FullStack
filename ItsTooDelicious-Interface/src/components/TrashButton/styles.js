@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const TrashButtonStyle = styled.button`
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   background-color: ${(props) => props.theme.red};
   border: none;
   border-radius: 5px;

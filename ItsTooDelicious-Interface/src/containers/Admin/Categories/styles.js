@@ -24,7 +24,7 @@ export const Container = styled.div`
   }
 `;
 
-export const ProductImage = styled.img`
+export const CategoryImage = styled.img`
   height: 100px;
   padding: 12px;
   border-radius: 16px;
