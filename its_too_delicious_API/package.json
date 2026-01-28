@@ -4,7 +4,8 @@
   "main": "./src/server.js",
   "scripts": {
     "dev": "nodemon",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "start": "node ./src/server.js"
   },
   "author": {
     "name": "Elton Antônio Vitoretti Junior",
