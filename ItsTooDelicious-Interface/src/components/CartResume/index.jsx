@@ -5,7 +5,7 @@ import { api } from '../../services/api.js';
 import { toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { formatPrice } from '../../utils/FormatPrice.js';
+import { formatPrice } from '../../utils/formatPrice.js';
 
 export function CartResume() {
   const [totalPrice, setTotalPrice] = useState(0);

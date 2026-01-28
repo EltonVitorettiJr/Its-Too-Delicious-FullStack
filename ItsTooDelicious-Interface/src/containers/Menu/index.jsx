@@ -8,7 +8,7 @@ import {
   ProductsContainer,
 } from './styles';
 import { api } from '../../services/api';
-import { formatPrice } from '../../utils/FormatPrice';
+import { formatPrice } from '../../utils/formatPrice';
 import { CardProducts, BackButton } from '../../components';
 import { useLocation, useNavigate } from 'react-router-dom';
 

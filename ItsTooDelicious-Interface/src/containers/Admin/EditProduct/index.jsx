@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CheckboxGroup } from './styles';
-import { formatPrice } from '../../../utils/FormatPrice';
+import { formatPrice } from '../../../utils/formatPrice';
 
 const schema = yup.object({
   name: yup.string().required('Digite o nome do produto'),
