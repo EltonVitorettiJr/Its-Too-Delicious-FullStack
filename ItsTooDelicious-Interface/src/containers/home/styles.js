@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import HomeTopBackground from '../../assets/homeTopBackground.svg';
 import HomeBottomBackground from '../../assets/homeBottomBackground.png';
+import { breakpoints } from '../../utils/breakpoints';
 
 export const Container = styled.div`
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   text-shadow: black 1px 0px 2px;
@@ -11,12 +13,18 @@ export const Container = styled.div`
 `;
 
 export const TopBackground = styled.section`
-  width: auto;
+  width: 100%;
   height: 300px;
   background: url('${HomeTopBackground}');
   background-size: cover;
   background-position: center;
+  position: relative;
   z-index: 2;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 200px;
+    margin-top: 72px;
+  }
 
   h1 {
     text-align: center;
@@ -29,6 +37,14 @@ export const TopBackground = styled.section`
     position: absolute;
     right: 20%;
     top: 10%;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 32px;
+      right: 50%;
+      transform: translateX(50%);
+      top: 15%;
+      width: 100%;
+    }
   }
 `;
 
@@ -36,4 +52,7 @@ export const BottomBackground = styled.section`
   width: 100%;
   background: url('${HomeBottomBackground}');
   background-size: cover;
+  background-position: center;
+  flex: 1;
+  padding-bottom: 40px;
 `;

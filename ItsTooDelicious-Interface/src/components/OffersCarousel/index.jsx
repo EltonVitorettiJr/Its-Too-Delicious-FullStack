@@ -36,11 +36,11 @@ export function OffersCarousel() {
     },
     tablet: {
       breakpoint: { max: 1280, min: 690 },
-      items: 3,
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 690, min: 0 },
-      items: 2,
+      items: 1.5,
     },
   };
 

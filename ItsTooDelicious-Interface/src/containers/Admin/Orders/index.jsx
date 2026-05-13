@@ -86,7 +86,7 @@ export function Orders() {
         ))}
       </Filter>
       <TableContainer component={Paper}>
-        <Table aria-label="collapsible table">
+        <Table aria-label="collapsible table" sx={{ minWidth: 650 }}>
           <TableHead>
             <TableRow>
               <TableCell />

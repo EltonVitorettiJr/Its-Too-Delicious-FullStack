@@ -28,7 +28,7 @@ export function Categories() {
       setCategories(data);
     }
     loadcategories();
-  }, [categories]);
+  }, []);
 
   function editCategory(category) {
     navigate('/admin/editar-categoria', { state: { category } });

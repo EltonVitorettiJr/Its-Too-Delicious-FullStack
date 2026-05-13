@@ -27,7 +27,6 @@ export default function CheckoutForm() {
     e.preventDefault();
 
     if (!stripe || !elements) {
-      console.log('Stripe ou Elements com falha!');
       return;
     }
 
@@ -37,9 +36,6 @@ export default function CheckoutForm() {
       elements,
       redirect: 'if_required',
     });
-
-    console.log(paymentIntent);
-    console.log(error);
 
     if (error) {
       setMessage(error.message);

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../../utils/breakpoints';
 
 export const Container = styled.div`
   overflow-y: auto;
@@ -21,6 +22,15 @@ export const Container = styled.div`
 
   .css-1dc80h3-MuiTableCell-root {
     background-color: ${(props) => props.theme.darkGray};
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow-x: auto;
+    max-height: 610px;
+    overflow-y: auto;
   }
 `;
 

@@ -2,11 +2,16 @@ import styled from 'styled-components';
 import LoginBackground from '../../assets/login-background.png';
 import MainBackground from '../../assets/main-background.png';
 import { Link as ReactLink } from 'react-router-dom';
+import { breakpoints } from '../../utils/breakpoints';
 
 export const Container = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+  }
 `;
 
 export const Mask = styled.div`
@@ -26,11 +31,22 @@ export const LeftContainer = styled.div`
   align-items: center;
   background: url('${LoginBackground}');
   background-size: cover;
+  background-position: center;
 
   img {
     width: 70%;
     filter: drop-shadow(0 0 0.35rem #a45a2fff);
     z-index: 2;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    height: 35%;
+    
+    img {
+      width: 50%;
+      max-width: 200px;
+    }
   }
 `;
 
@@ -43,6 +59,7 @@ export const RightContainer = styled.div`
   gap: 40px;
   background: url('${MainBackground}');
   background-size: cover;
+  background-position: center;
   text-shadow: black 1px 0px 2px;
 
   p {
@@ -50,6 +67,14 @@ export const RightContainer = styled.div`
     color: white;
     z-index: 2;
     display: flex;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    height: 65%;
+    gap: 20px;
+    justify-content: flex-start;
+    padding-top: 2rem;
   }
 `;
 
@@ -67,6 +92,11 @@ export const Subtitle = styled.h2`
     color: ${(props) => props.theme.orange};
     font-family: 'Road Rage', sans-serif;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 28px;
+    width: 90%;
+  }
 `;
 
 export const Form = styled.form`
@@ -76,6 +106,11 @@ export const Form = styled.form`
   width: 70%;
   z-index: 2;
   max-width: 550px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 85%;
+    gap: 15px;
+  }
 `;
 
 export const InputContainer = styled.div`

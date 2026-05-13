@@ -1,6 +1,7 @@
 import { Button, Input as InputComponent } from '../../../components';
 import ReactSelect from 'react-select';
 import styled from 'styled-components';
+import { breakpoints } from '../../../utils/breakpoints';
 
 export const Container = styled.div`
   height: 100%;
@@ -8,6 +9,10 @@ export const Container = styled.div`
   justify-content: center;
   max-width: 1280px;
   margin-top: 100px;
+
+  @media (max-width: ${breakpoints.laptop}) {
+    margin-top: 20px;
+  }
 `;
 
 export const Form = styled.form`

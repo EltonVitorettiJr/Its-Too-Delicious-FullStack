@@ -126,7 +126,9 @@ export function Login() {
             />
             <p>{errors?.password?.message}</p>
           </InputContainer>
-          <Button type="submit">Entrar</Button>
+          <Button type="submit">
+            Entrar
+          </Button>
         </Form>
         <p>
           Não possui conta?&nbsp;<Link to="/cadastro">Clique aqui.</Link>

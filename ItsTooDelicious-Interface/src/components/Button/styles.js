@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../utils/breakpoints';
 
 export const StylesButton = styled.button`
   width: 100%;
@@ -15,5 +16,9 @@ export const StylesButton = styled.button`
 
   &:hover {
     background-color: ${(props) => props.theme.middleRed};
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 20px;
   }
 `;

@@ -32,7 +32,7 @@ export function Row({ row, orders, setOrders }) {
 
       setOrders(newOrders);
     } catch (error) {
-      console.log(error);
+      throw new Error('Erro ao atualizar status do pedido');
     } finally {
       setLoading(false);
     }
@@ -76,7 +76,7 @@ export function Row({ row, orders, setOrders }) {
               <Typography variant="h6" gutterBottom component="div">
                 Pedido
               </Typography>
-              <Table size="small" aria-label="purchases">
+              <Table size="small" aria-label="purchases" sx={{ minWidth: 500 }}>
                 <TableHead>
                   <TableRow>
                     <TableCell>Quantidade</TableCell>

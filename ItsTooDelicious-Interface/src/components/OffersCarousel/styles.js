@@ -1,10 +1,15 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../utils/breakpoints';
 
 export const Container = styled.div`
   .offer-product {
     padding: 0px 20px;
     display: flex;
     justify-content: center;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      padding: 0px 10px;
+    }
   }
 
   overflow-x: hidden;
@@ -15,6 +20,10 @@ export const Container = styled.div`
 
   .react-multiple-carousel__arrow {
     top: 10px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      display: none;
+    }
   }
 
   text-shadow: black 1px 0px 2px;
@@ -39,5 +48,10 @@ export const Title = styled.h2`
     bottom: 0;
     border-radius: 2px;
     left: calc(50% - 28px);
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 26px;
+    margin: 10px 0 35px;
   }
 `;

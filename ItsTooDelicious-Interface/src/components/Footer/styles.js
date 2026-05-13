@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../utils/breakpoints';
 
 export const Container = styled.div`
   background-color: ${(props) => props.theme.middleRed};
@@ -10,5 +11,11 @@ export const Container = styled.div`
 
   h3 {
     font-size: 15px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    h3 {
+      font-size: 12px;
+    }
   }
 `;

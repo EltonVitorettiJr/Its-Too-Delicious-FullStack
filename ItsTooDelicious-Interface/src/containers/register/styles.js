@@ -2,16 +2,22 @@ import styled from 'styled-components';
 import LoginBackground from '../../assets/login-background.png';
 import MainBackground from '../../assets/main-background.png';
 import { Link as ReactLink } from 'react-router-dom';
+import { breakpoints } from '../../utils/breakpoints';
 
 export const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+  }
 `;
 
 export const Mask = styled.div`
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
   background: black;
   position: fixed;
   top: 0;
@@ -26,11 +32,23 @@ export const LeftContainer = styled.div`
   align-items: center;
   background: url('${LoginBackground}');
   background-size: cover;
+  background-position: center;
 
   img {
     width: 70%;
     filter: drop-shadow(0 0 0.35rem #a45a2fff);
     z-index: 2;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    height: 25vh;
+    min-height: 150px;
+    
+    img {
+      width: 40%;
+      max-width: 180px;
+    }
   }
 `;
 
@@ -43,12 +61,22 @@ export const RightContainer = styled.div`
   gap: 20px;
   background: url('${MainBackground}');
   background-size: cover;
+  background-position: center;
   text-shadow: black 1px 0px 2px;
+  padding: 20px 0;
 
   p {
     text-decoration: none;
     color: white;
     z-index: 2;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    flex: 1;
+    justify-content: flex-start;
+    padding-top: 30px;
+    padding-bottom: 50px;
   }
 `;
 
@@ -61,6 +89,11 @@ export const Subtitle = styled.h2`
   font-style: normal;
   color: ${(props) => props.theme.orange};
   z-index: 2;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 36px;
+    margin-bottom: -10px;
+  }
 `;
 
 export const Form = styled.form`
@@ -70,6 +103,11 @@ export const Form = styled.form`
   width: 70%;
   z-index: 2;
   max-width: 500px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 85%;
+    gap: 15px;
+  }
 `;
 
 export const InputContainer = styled.div`
@@ -108,6 +146,7 @@ export const InputContainer = styled.div`
     font-size: 14px;
     height: 10px;
     font-weight: 600;
+    margin-top: 5px;
   }
 `;
 

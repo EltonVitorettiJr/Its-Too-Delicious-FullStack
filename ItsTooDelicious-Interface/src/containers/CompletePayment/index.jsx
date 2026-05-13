@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import '../../components/Stripe/styles.css';
+import { Link } from 'react-router-dom';
 
 const SuccessIcon = (
   <svg
@@ -183,9 +184,9 @@ export function CompletePayment() {
           </a>
         )}
 
-        <a id="retry-button" href={STATUS_CONTENT_MAP[status].url}>
+        <Link id="retry-button" to={STATUS_CONTENT_MAP[status].url}>
           {STATUS_CONTENT_MAP[status].buttonText}
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import BannerImg from '../../assets/CartTopBackground.svg';
 import BottomBackground from '../../assets/homeBottomBackground.png';
+import { breakpoints } from '../../utils/breakpoints';
 
 export const Container = styled.main`
   background-color: ${(props) => props.theme.dark};
@@ -8,13 +9,15 @@ export const Container = styled.main`
 
 export const Content = styled.div`
   background: url('${BottomBackground}');
-  height: 97.1vh;
+  background-size: cover;
+  height: 100vh;
 `;
 
 export const BottomContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 20px;
 `;
 
 export const Title = styled.h1`
@@ -37,14 +40,25 @@ export const Title = styled.h1`
     left: 50%;
     transform: translateX(-50%);
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 24px;
+  }
 `;
 
 export const ContentCart = styled.section`
   display: grid;
   grid-template-columns: 1fr 27.5%;
-  height: 100%;
   width: 100%;
   max-width: 1280px;
-  max-height: 525px;
   gap: 30px;
+
+  @media (max-width: ${breakpoints.laptop}) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    gap: 20px;
+  }
 `;

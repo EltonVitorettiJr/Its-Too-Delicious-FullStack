@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../utils/breakpoints';
 
 export const Root = styled.table`
   border-collapse: collapse;
@@ -6,19 +7,27 @@ export const Root = styled.table`
   border-radius: 20px;
   width: 100%;
   height: auto;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow-x: auto;
+    max-height: 600px;
+    overflow-y: auto;
+  }
 `;
 
 export const Header = styled.thead`
-  max-height: 51px;
-  position: fixed;
-  z-index: 99;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 `;
 
 export const Tr = styled.tr``;
 
 export const Th = styled.th`
   color: white;
-  text-align: left;
   text-align: center;
   font-size: 18px;
   font-weight: 400;
@@ -41,8 +50,13 @@ export const Th = styled.th`
   &:nth-child(4) {
     width: 116px;
   }
+
+  &:nth-child(5) {
+    width: 116px;
+  }
+
   &:last-child {
-    width: 159px;
+    width: 60px;
     border-top-right-radius: 20px;
   }
 `;

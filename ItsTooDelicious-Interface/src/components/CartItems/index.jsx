@@ -1,7 +1,7 @@
 import { Table } from '../index';
 import { useCart } from '../../hooks/CartContext';
 import { formatPrice } from '../../utils/formatPrice';
-import { ButtonGroup, EmptyCart, ProductImg } from './styles';
+import { ButtonGroup, EmptyCart, ProductImg, Container } from './styles';
 import { TrashButton } from '../TrashButton';
 
 export function CartItems() {
@@ -13,7 +13,7 @@ export function CartItems() {
   } = useCart();
 
   return (
-    <div style={{ borderRadius: '20px', overflowY: 'auto' }}>
+    <Container>
       <Table.Root>
         <Table.Header>
           <Table.Tr>
@@ -22,15 +22,17 @@ export function CartItems() {
             <Table.Th>Preço</Table.Th>
             <Table.Th>Quantidade</Table.Th>
             <Table.Th>Subtotal</Table.Th>
+            <Table.Th></Table.Th>
           </Table.Tr>
         </Table.Header>
         <Table.Body>
-          <Table.Tr>
+          <Table.Tr className="spacer">
             <Table.Td style={{ height: '50px' }} />
           </Table.Tr>
+          
           {cartProducts?.length ? (
             cartProducts.map((product) => (
-              <Table.Tr key={product.id}>
+              <Table.Tr key={product.id} className="product-row">
                 <Table.Td>
                   <ProductImg src={product.url} />
                 </Table.Td>
@@ -58,14 +60,14 @@ export function CartItems() {
               </Table.Tr>
             ))
           ) : (
-            <Table.Tr>
-              <Table.Td>
+            <Table.Tr className="empty-cart">
+              <Table.Td colSpan={6}>
                 <EmptyCart>Carrinho vazio</EmptyCart>
               </Table.Td>
             </Table.Tr>
           )}
         </Table.Body>
       </Table.Root>
-    </div>
+    </Container>
   );
 }
